@@ -2,7 +2,7 @@
 
 Small project to display the NYT frontpage.
 
-The frontpage is fecthed in PDF format and converted to JPG format.
+The frontpage is fetched in PDF format and converted to JPG format.
 
 Requires ImageMagick to be installed in your hosting server.
 
