@@ -1,2 +1,2 @@
 <?php
-header('show-frontpage.php');
+header('Location: show-frontpage.php');
