@@ -1,6 +1,6 @@
 # The New York Times Frontpage Viewer
 
-Small project to display the NYT frontpage.
+Small PHP project to display the NYT frontpage.
 
 The frontpage is fetched in PDF format and converted to JPG format.
 
