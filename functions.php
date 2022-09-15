@@ -28,7 +28,7 @@ function get_frontpage(): string
         //  Delete old downloaded and converted frontpage images
         delete_old_frontpage();
         // fetches the frontpage and saves it
-        fetch_frontpage($frontpage['path'], $file_name . $source_ext);
+        fetch_frontpage($frontpage['url'], $file_name . $source_ext);
 
         /**
          * Converts the PDF to JPG with set density (dpi) and quality
@@ -52,7 +52,7 @@ function get_frontpage(): string
 function get_frontpage_info(): array
 {
     $show_date = date('Y/m/d');
-    $path      = 'https://static01.nyt.com/images/' . $show_date . '/nytfrontpage/scan.pdf';
+    $url       = 'https://static01.nyt.com/images/' . $show_date . '/nytfrontpage/scan.pdf';
 
     // check if there is any today
     $file_headers = @get_headers($path);
@@ -60,11 +60,11 @@ function get_frontpage_info(): array
     // if there's none today, get yesterday's
     if (!$file_headers || $file_headers[0] === 'HTTP/1.1 404 Not Found') {
         $show_date = date('Y/m/d', strtotime('-1 days'));
-        $path      = 'https://static01.nyt.com/images/' . $show_date . '/nytfrontpage/scan.pdf';
+        $url       = 'https://static01.nyt.com/images/' . $show_date . '/nytfrontpage/scan.pdf';
     }
 
     return [
-        'path'      => $path,
+        'url'       => $url,
         'show_date' => date('Y-m-d', strtotime($show_date)),
     ];
 }
